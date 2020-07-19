@@ -2094,23 +2094,29 @@
 
                 var dds = document.documentElement.scrollTop
                 var h = document.documentElement.clientHeight
-
-                if (dds > 200) {
+                console.log(dds)
+                if (dds > 600) {
                     search.style.top = 0
+
+
+                }
+                if (dds < 600) {
+                    search.style.top = -50 + "px"
+
+                }
+                if (dds > 800) {
                     nav.style.transform = "scale(1, 1)"
                     nav.style.top = (h - nav.offsetHeight) / 2 + "px"
 
                 }
-                if (dds < 200) {
-                    search.style.top = -50 + "px"
+                if (dds < 800) {
                     nav.style.transform = "scale(0, 0)"
                 }
-
                 // 添加颜色
                 var st = document.documentElement.scrollTop
 
                 for (var i = 0; i < navList.length; i++) {
-                    if (navList[i].top >= st && navList[i].top < st + conList[i].offsetHeight) {
+                    if (navList[i].top >= st && navList[i].top < st + conList[i].offsetHeight + 40) {
                         for (var j = 0; j < navList.length; j++) {
                             navList[j].style.background = "  rgba(0, 0, 0, .6)"
 
@@ -2125,7 +2131,7 @@
                     console.log(document.documentElement.scrollTop)
                     navLast.onclick = function() {
                         animate(document.documentElement, {
-                            scrollTop: 123
+                            scrollTop: 0
                         }, 500, Tween.Linear)
                     }
                     for (let i = 0; i < navList.length; i++) {
