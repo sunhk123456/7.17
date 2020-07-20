@@ -80,8 +80,8 @@ function animate(obj, attrObj, duration, fn, callback) {
     obj.t = setInterval(function() {
         time += 50;
         for (var i in attrObj) {
-            obj.style[i] = fn(time, start[i], change[i], duration) + "px"
-                // css(obj, i, fn(time, start[i], change[i], duration))
+            // obj.style[i] = fn(time, start[i], change[i], duration) + "px"
+            css(obj, i, fn(time, start[i], change[i], duration))
 
 
         }
